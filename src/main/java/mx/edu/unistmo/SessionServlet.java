@@ -27,7 +27,7 @@ public class SessionServlet extends HttpServlet {
     public void init() throws ServletException {
         mongoClient = MongoClients.create(
                 "mongodb+srv://giovanni:Giovani129se23nf@cluster0.qfbkqre.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
-        database = mongoClient.getDatabase("miBaseDeDatos");
+        database = mongoClient.getDatabase("Validacion");
         usuariosCollection = database.getCollection("usuarios");
         passwordsCollection = database.getCollection("passwords");
     }
@@ -41,15 +41,12 @@ public class SessionServlet extends HttpServlet {
         boolean credencialesValidas = verificarCredenciales(usuario, contraseña);
 
         if (credencialesValidas) {
-            HttpSession session = request.getSession();
+            HttpSession session = request.getSession(); //Manejar el objeto session
             session.setAttribute("usuario", usuario);
 
             if (request.getParameter("recordar") != null) {
-      
-                HttpSession session = request.getSession(true);
-                session.setAttribute("usuario", usuario);
                 session.setMaxInactiveInterval(7 * 24 * 60 * 60); 
-
+            
                 Cookie usuarioCookie = new Cookie("usuario", usuario);
                 Cookie contraseñaCookie = new Cookie("contraseña", contraseña);
                 usuarioCookie.setMaxAge(7 * 24 * 60 * 60); 
