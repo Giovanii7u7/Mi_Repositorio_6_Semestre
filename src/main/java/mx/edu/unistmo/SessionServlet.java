@@ -56,9 +56,10 @@ public class SessionServlet extends HttpServlet {
             }
 
             response.sendRedirect("bienvenida.jsp");
+
         } else {
             request.setAttribute("mensajeError", "Usuario o contraseña incorrectos");
-            request.getRequestDispatcher("login.jsp").forward(request, response);
+            request.getRequestDispatcher("index.jsp").forward(request, response);
         }
     }
 
