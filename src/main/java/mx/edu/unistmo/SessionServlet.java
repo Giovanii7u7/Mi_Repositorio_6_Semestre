@@ -48,7 +48,7 @@ public class SessionServlet extends HttpServlet {
                 session.setMaxInactiveInterval(7 * 24 * 60 * 60); 
             
                 Cookie usuarioCookie = new Cookie("usuario", usuario);
-                Cookie contraseñaCookie = new Cookie("contraseña", contraseña);
+                Cookie contraseñaCookie = new Cookie("password", contraseña);
                 usuarioCookie.setMaxAge(7 * 24 * 60 * 60); 
                 contraseñaCookie.setMaxAge(7 * 24 * 60 * 60);
                 response.addCookie(usuarioCookie);
