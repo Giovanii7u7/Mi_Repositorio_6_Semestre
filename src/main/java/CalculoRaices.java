@@ -14,7 +14,7 @@ public class CalculoRaices extends HttpServlet {
         double b = Double.parseDouble(request.getParameter("coeficienteB"));
         double c = Double.parseDouble(request.getParameter("coeficienteC"));
 
-        // Configurar la respuesta
+        // Configurar la respuestaaa
         response.setContentType("text/html; charset=UTF-8");
         PrintWriter out = response.getWriter();
 
